@@ -1,20 +1,19 @@
-version1
+version2
 
 def game_core_v3(number):
-    '''Сначала устанавливаем любое random число, а потом уменьшаем или увеличиваем его
-       в зависимости от того, больше оно или меньше нужного.
-       Функция принимает загаданное число и возвращает число попыток'''
-    count = 0
-    predict = np.random.randint(1,100)
+    import numpy as np
+    number=0
+    count=0 # zero count
+    n1=1 #begin of range
+    n2=101 # end of range
+    predict = np.random.randint(1,100) # made a number
     while number != predict:
+        number=(n1+n2) // 2 # count middle of range
         count+=1
-        if number > predict:
-            predict//2==0
-            predict += 1
-        elif number < predict:
-            predict//2==0
-            predict -= 1
-    return(count) # выход из цикла, если угадали
-
-# Проверяем
+        if number>predict:
+            n2=number # change range
+        else:
+            n1=number # change range
+    return(count)
+ 
 score_game(game_core_v3)
